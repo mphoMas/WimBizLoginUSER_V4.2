@@ -1,0 +1,262 @@
+
+ h2 {
+
+    margin: 0;
+
+    padding: 0;
+
+    font-family: avenir-lt-w01_35-light1475496,avenir-lt-w05_35-light,sans-serif;
+
+    color: #17A589;
+
+    font-size:20px;
+
+}
+
+h1 {
+
+    font-size: 30px;
+
+    color: #17A589;
+
+    text-align: center;
+
+    margin: 20px;
+
+}
+
+ 
+
+/* Style the overall form container */
+
+.form-container {
+
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    padding: 20px;
+
+}
+
+ 
+
+/* Style the form wrapper */
+
+.wrapper {
+
+    background-color:white;
+
+    padding: 20px;
+
+    border-radius: 5px;
+
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+ 
+
+/* Style form sections */
+
+.section {
+
+    margin-bottom: 20px;
+
+}
+
+ 
+
+/* Style form labels */
+
+label {
+
+    font-weight: bold;
+
+    display: block;
+
+    margin-bottom: 5px;
+
+}
+
+ 
+
+/* Style form inputs */
+
+input[type="text"],
+
+input[type="email"],
+
+input[type="tel"],
+
+input[type="url"],
+
+input[type="number"],
+
+select,
+
+textarea {
+
+    width: 100%;
+
+    padding: 8px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px;
+
+    margin-bottom: 10px;
+
+}
+
+ 
+
+/* Style checkboxes */
+
+input[type="checkbox"] {
+
+    margin-right: 5px;
+
+}
+
+ 
+
+/* Style the submit button */
+
+.submit-section {
+
+   
+
+    margin-top: 20px;
+
+}
+
+ 
+
+/* Style the form submit button */
+
+input[type="submit"] {
+
+    background-color:#17A589;
+
+    color: #fff;
+
+    padding: 10px 20px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+}
+
+ 
+
+/* Style form responsiveness */
+
+@media screen and (max-width: 600px) {
+
+    .form-container {
+
+        padding: 10px;
+
+    }
+
+}
+
+ 
+
+.center-button {
+
+    display: block;
+
+    margin: 0 auto;
+
+    background-color: green;
+
+    color: white;
+
+    padding: 10px 20px;
+
+    border: none;
+
+    cursor: pointer;
+
+  }
+
+ 
+
+  .center-submit {
+
+    display: block;
+
+    margin: 20px auto;
+
+    background-color: green;
+
+    color: white;
+
+    padding: 10px 20px;
+
+    border: none;
+
+    cursor: pointer;
+
+  }
+
+ 
+
+  /* Style the buttons */
+
+  button {
+
+    background-color:#17A589;
+
+    color: white;
+
+    border: none;
+
+    padding: 10px 20px;
+
+    border-radius: 4px;
+
+    cursor: pointer;
+
+    margin-right: 10px;
+
+  }
+
+ 
+
+  /* Style the Save button */
+
+  button:nth-child(1) {
+
+    background-color:#17A589;
+
+  }
+
+ 
+
+  /* Style the Cancel button */
+
+  button:nth-child(2) {
+
+    background-color: white;
+
+  }
+
+ 
+
+  /* Style the Edit button */
+
+  button:nth-child(3) {
+
+    background-color: white;
+
+  }
+
+ 

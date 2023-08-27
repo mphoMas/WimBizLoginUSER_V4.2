@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Profile</title>
+
+ 
+
+    <style>
+
+      body {
+
+          background-image: url(WIMBIZPIC.jpeg);
+
+          background-size: cover;
+
+          background-repeat: no-repeat;
+
+          background-attachment: fixed;
+
+          display: flex;
+
+          justify-content: center;
+
+          align-items: center;
+
+          margin: 0;
+
+          padding: 20px;
+
+          font-family: Arial, sans-serif;
+
+      }
+
+ 
+
+      .edit-container {
+
+          background-color: white;
+
+          padding: 10px;
+
+          margin-top: 0px;
+
+          border-radius: 10px;
+
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+
+          width: 100%;
+
+          max-width: 400px;
+
+      }
+
+ 
+
+      form {
+
+          display: flex;
+
+          flex-direction: column;
+
+      }
+
+ 
+
+      label {
+
+          text-align: center;
+          font-weight: bold;
+
+          display: block;
+
+          margin-bottom: -20px;
+
+      }
+
+ 
+
+      h1 {
+
+          font-size: 30px;
+
+          color: #17A589;
+
+          text-align: center;
+
+          margin: 10px;
+
+          font-family: Arial, sans-serif;
+
+          margin-bottom: -50px;
+
+      }
+
+ 
+
+     
+
+ 
+
+      button {
+
+          font-size: 16px;
+
+          margin-top: 10px;
+
+          padding: 12px 20px;
+
+          border-radius: 20px;
+
+          outline: none;
+
+          border: 1px solid #fff;
+
+          width: 90%;
+
+          background: rgb(33, 165, 150);
+
+          cursor: pointer;
+
+          margin-bottom: 20px;
+
+          margin-left: 15px;
+
+      }
+
+ 
+
+      .back-link {
+
+          text-decoration: none;
+
+          color: #17A589;
+
+          padding: 20px;
+
+          position: absolute;
+
+          top: 0;
+
+          left: 0;
+
+          display: flex;
+
+          position: fixed;
+
+          font-size: 16px;
+
+          align-items: center;
+
+      }
+
+ 
+
+      .wrapper {
+
+          width: 420px;
+
+          height: 550px;
+
+      }
+
+ 
+
+      form input {
+
+          width: 92%;
+
+          outline: none;
+
+          border: 1px solid #fff;
+
+          padding: 12px 20px;
+
+          margin-bottom: 10px;
+
+          border-radius: 20px;
+
+          background: #e4e4e4;
+
+          font-size: 12px;
+
+}
+
+  </style>
+
+</head>
+
+<body
+
+   
+
+       
+
+ 
+
+<div class="back-button">
+
+  <a href="AdminwimbizPortal.html" class="back-link">
+
+      <span class="back-link"></span> Back to Home
+
+  </a>
+
+ 
+
+ <br>
+
+ <br>
+
+ <section class="container edit-container">
+
+ 
+
+
+
+   <h1> Update Member Account Details</h1>
+
+   <br><br><br>
+
+   <form id="account-form"  >
+
+    <div>
+
+            <label for="First_Name">First name :</label> <br>
+
+            <input type="text" id="First_Name" name="First_Name"/> <br>
+
+          </div>
+
+        <label for="Last_Name">Last Name :</label> <br>
+
+        <input type="text" id="Last_Name" name="Last_Name"/> <br>
+
+      </div>
+
+      <label for="phone">Contact :</label> <br>
+
+        <input type="text" id="phone" name="phone"/> <br>
+
+      </div>
+
+      <label for="Email">Email :</label> <br>
+
+      <input type="email" id="Email" name="Email"/>
+
+    </div>
+
+    <div>
+
+    </form>
+
+      <!-- <label for="password">Current Password :</label> <br>
+
+      <input type="password" id="password" name="password"/> <br>
+
+    </div>
+
+    <div> -->
+
+      <label for="password"> New Password :</label> <br>
+
+      <input type="password" id="password" name="password"/> <br>
+
+    </div>
+
+   <br>
+
+   
+
+    <button id="edit">Confirm</button>
+
+ 
+
+     
+
+
+
+</section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <script type="module" src="Adminprofile.js"></script>
+
+  <!-- <script type="module" src="signuplogin.js"></script> -->
+
+ 
+
+  <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app-compat.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore-compat.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-auth-compat.js"></script>
+
+  <script >
+
+  // Initialize
+
+  const firebaseApp = firebase.initializeApp({
+
+    apiKey: "AIzaSyBf4YWSbtdbbUBcxRJQ0RkOnUDYVNcD8uQ",
+
+    authDomain: "testjs-fc621.firebaseapp.com",
+
+    databaseURL: "https://testjs-fc621-default-rtdb.firebaseio.com",
+
+    projectId: "testjs-fc621"
+
+  });
+
+ 
+
+  //make auth and firestore references
+
+  const auth = firebase.auth();
+
+  const db = firebase.firestore();
+
+  db.settings({timestampsInSnapshots: true });
+
+ 
+
+</script>
+
+    </body>
+
+</html>
+
+ 

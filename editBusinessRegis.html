@@ -1,0 +1,708 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<link rel="icon" href="Home Logo w.png" type="image/png">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script> <!-- Load firebase-app.js first -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+    
+    <title>Edit Business</title>
+   
+    <style>
+
+      .required-indicator{
+        color: red;
+        margin-left: 4px;
+      }
+      input:invalid + label .required-indicator{
+        display: inline;
+      }
+      .back-link {
+          text-decoration: none;
+          color: #17A589;
+          padding: 20px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: flex;
+          position: fixed;
+          align-items: center;
+      }
+
+      body {
+         
+         background-image: url(WIMBIZPIC.jpeg);
+         background-size: cover;
+         background-repeat: no-repeat;
+         background-attachment: fixed;
+         justify-content: center;
+         align-items: center;
+         margin: 0;
+         padding: 20px;
+         font-family: Arial, sans-serif;
+     }
+
+    </style>
+
+</head>
+
+
+<div class="back-button">
+  <a href="wimbizPortal.html" class="back-link">
+      <span class="back-link"></span> Back to Home
+  </a>
+
+<br>
+<body>
+    <div class="form-container">
+    <div class="wrapper">
+      <h1>Business Registration</h1>
+    <form class="business-form" id="businessRegistration">
+      <button class="collapsible">Business Details</button>
+            <div class="content">
+            <label for="memberID">Member ID:</label>
+            <input type="text" id="memberID" name="memberID" disabled>
+
+            <p><label for="cipcNo"> CIPC Registration Number<span class="required-indicator">*</span></label>
+              <input type="text" id="cipcNo" name="cipcNo" placeholder="" required></p>
+              
+           <p> <label for="tradingname">Trading Name:</label>
+            <input type="text" id="tradingname" name="tradingname" ></p>
+
+            <p><label for="registeredname">Registered Name:</label>
+            <input type="text" id="registeredname" name="registeredname"></p>
+
+            <label for="category">Core Business:</label>
+            <select id="category" name="category">
+              <option value="" disabled selected>Select A Category</option>
+              <option value="agriculture">Agriculture</option>
+              <option value="automotive">Automotive</option>
+              <option value="catering">Catering</option>
+              <option value="civilbuilding">Civil and Building Construction</option>
+              <option value="cleaning">Cleaning</option>
+              <option value="consulting">Consulting</option>
+              <option value="conveyorbelt">Conveyor Belt</option>
+              <option value="coremining">Core Mining</option>
+              <option value="dustmanagement">Dust Management</option>
+              <option value="engineering">Engineering</option>
+              <option value="finance">Finance</option>
+              <option value="fuel">Fuel</option>
+              <option value="hr">HR</option>
+              <option value="maintenance">Maintenance</option>
+              <option value="manufacturing">Manufacturing</option>
+              <option value="officesupplies">Office Supplies</option>
+              <option value="planthire">Plant Hire</option>
+              <option value="ppe">PPE</option>
+              <option value="professionalservices">Professional Services</option>
+              <option value="security">Security</option>
+              <option value="supplies">Supplies</option>
+              <option value="transport">Transport</option>
+              <option value="waste">Waste</option>
+              <option value="water">Water</option>
+            
+            </select>
+          </p>
+        
+          <label for="subcategory">SubCategory:</label>
+          <select id="subcategory" name="subcategory">
+            <option value="" disabled selected>Select A Category</option>
+          <option value="mining">Mining</option>
+      <option value="ppe">PPE</option>
+      <option value="training">Training</option>
+      <option value="legal">Legal</option>
+      <option value="farming">Farming</option>
+      <option value="tourism">Tourism</option>
+      <option value="esg">ESG</option>
+      <option value="funding">Funding</option>
+      <option value="environmental">Environmental</option>
+      <option value="logistics">Logistics</option>
+      <option value="she">SHE</option>
+      <option value="mechanical">Mechanical</option>
+      <option value="general">General</option>
+      <option value="pr">PR</option>
+      <option value="it">IT</option>
+      <option value="geology">Geology</option>
+      <option value="metallurgy">Metallurgy</option>
+      <option value="bbbee">BBBEE</option>
+      <option value="commodities">Commodities</option>
+      <option value="cleaning">Cleaning</option>
+      <option value="surface">Surface</option>
+      <option value="marketing">Marketing</option>
+      <option value="software">Software</option>
+      <option value="catering">Catering</option>
+      <option value="artisan">Artisan</option>
+      <option value="property">Property</option>
+      <option value="electrical">Electrical</option>
+      <option value="security">Security</option>
+      <option value="water">Water</option>
+      <option value="plant">Plant</option>
+      <option value="manufacturing">Manufacturing</option>
+      <option value="finace">Finance</option>
+      <option value="mineral">Mineral</option>
+      <option value="construction">Construction</option>
+      <option value="welding">Welding</option>
+      <option value="repairs">Repairs</option>
+      <option value="diesel">Diesel</option>
+      <option value="supply">Supply</option>
+      <option value="pumpsPetrolTruckpart">Pumps,Petrol,Truck Part</option>
+      <option value="civil">Civil</option>
+      <option value="services">Services</option>
+      <option value="surveying">Surveying</option>
+      <option value="building">Building</option>
+      <option value="ohs">OHS</option>
+      <option value="reclamation">Reclamation</option>
+      <option value="tbc">TBC</option>
+      <option value="logistics">Logistics</option>
+      <option value="contractors">Contractors</option>
+      <option value="housing">Housing</option>
+      <option value="drillandblast">Drill and Blast</option>
+      <option value="communications">Communications</option>
+      <option value="consulting">Consulting</option>
+      <option value="energy">Energy</option>
+      <option value="petroleum">Petroleum</option>
+      <option value="transportation">Transportation</option>
+      <option value="renovations">Renovations</option>
+      <option value="photography">Photography</option>
+      <option value="radios">Radios</option>
+      <option value="investments">Investments</option>
+      <option value="risk">Risk</option>
+      <option value="steel">Steel</option>
+      <option value="sed">SED</option>
+      <option value="infrastructure">Infrastructure</option>
+      <option value="events">Events</option>
+      <option value="chemical">Chemical</option>
+      <option value="pmo">PMO</option>
+      <option value="printers">Printers</option>
+      <option value="recruitment">Recruitment</option>
+      <option value="agriculture">Agriculture</option>
+      <option value="digital">Digital</option>
+      <option value="tools">Tools</option>
+      <option value="projectmanagement">Project Management</option>
+      <option value="business">Business</option>
+      <option value="automative">Automative</option>
+      <option value="security">Security</option>
+      <option value="supply">Supply</option>
+      <option value="analytical">Analytical</option>
+      <option value="smme">SMME</option>
+      <option value="painting">Painting</option>
+    </select>
+    <input type="text" id="other-subcategory" name="other-subcategory" placeholder="Other Subcategory" style="display: none;">
+
+    
+  </p>
+  
+  <script>
+    const subcategorySelect = document.getElementById("subcategory");
+    const categorySelect = document.getElementById("category");
+  
+  
+    const subcategories = {
+  agriculture: ["Farming", "Other"],
+
+  automotive: ["Auto Painting", "Auto Repairs", "Other"],
+
+  catering: ["Food Supplies", "Other"],
+
+  civilbuilding: [ "Building", "Civil", "Construction",  "Housing",  "Infrastructure",  "Mining",  "Capentry, Tiling and Plumbing", "Earthworks Road Construction",  "Painting",  "Property",  "Surveying", "Other"],
+    
+  cleaning: ["Industrial Cleaning", "Office Cleaning", "Other"],
+
+  consulting: ["BBBEE", "Business", "Engineering", "Environmental", "ESG", "General", "Geology",  "Metallurgy", "Mining", "OHS/SHE", "Surveying", "PR",  "Project Management", "Risk", "SED", "Other"], 
+    
+  conveyorbelt: ["Accessories Import and Export", "Installation and Maintenance", "Other"],
+    
+  coremining: ["Drilling", "Blasting", "Exploration", "Metallurgy", "Explosives", "Mining", "Reclamation", "Other"],
+    
+  dustmanagement: ["Dust Suppression", "Other"],
+
+  engineering: ["Repairs", "Plant Hire", "Automation", "Chemical", "Civil", "Electrical", "Energy", "General Supplies", "Mechanical", "Boilermaker", "Supply", "Artisan", "Welding", "Other"],
+    
+  finance: ["Funding", "Investments", "Other"],
+
+  fuel: ["Diesel", "Petroleum", "Other"],
+
+  hr: ["Artisan", "Contractors", "Finance", "Recruitment", "Training", "Other"],
+
+  maintenance: ["Cleaning Services (Landscaping)", "Mining", "Plant", "Repairs", "Other"],
+
+  manufacturing: ["Manufacturing", "Steel", "Other"],
+
+  officesupplies: ["Catering", "Cleaning", "Events Management", "Photography", "Printers", "Renovations", "Other"],
+
+  planthire: ["Equipment", "Other"],
+
+  ppe: ["PPE Supplies", "Other"],
+
+  professionalservices: ["Commodities", "Communications", "Digital", "Investments", "Legal", "Marketing", "PR", "Software", "Accounting", "IT", "Laboratory Services", "Other"],
+    
+  security: ["Security Supplies", "Security Personnel", "CCTV, Control Room", "Other"],
+    
+  supplies: ["Electrical", "Fuel Supply", "General", "Radios", "Tools", "Other"],
+
+  transport: ["Automotive", "Logistics", "Shuttle", "Tourism", "Transportation", "Other"],
+
+  waste: ["Waste Management", "Recycling", "Other"],
+
+  water: ["Water Reticulation", "Pumps, Petrol, Truck Parts", "Other"],
+    
+     
+    };
+  
+    categorySelect.addEventListener("change", function () {
+      const selectedCategory = this.value;
+      subcategorySelect.innerHTML = "";
+  
+      if (selectedCategory) {
+        const categorySubcategories = subcategories[selectedCategory];
+        categorySubcategories.forEach((subcategory) => {
+          const option = document.createElement("option");
+          option.value = subcategory.toLowerCase().replace(" ", "");
+          option.textContent = subcategory;
+          subcategorySelect.appendChild(option);
+        });
+      } else {
+        const defaultOption = document.createElement("option");
+        defaultOption.value = "";
+        defaultOption.textContent = "Select A Category First";
+        subcategorySelect.appendChild(defaultOption);
+      }
+    });
+  </script>
+
+<script>
+ // const subcategorySelect = document.getElementById("subcategory");
+  const otherSubcategoryInput = document.getElementById("other-subcategory");
+
+  subcategorySelect.addEventListener("change", function () {
+    const selectedSubcategory = this.value;
+
+    if (selectedSubcategory === "other") {
+      otherSubcategoryInput.style.display = "block";
+      otherSubcategoryInput.value = ""; // Clear the input field
+    } else {
+      otherSubcategoryInput.style.display = "none";
+    }
+  });
+</script>
+
+
+
+        <p><label for="natureofgoods">Nature of Goods:</label>
+        <input type="text" id="natureofgoods" name="natureofgoods" ><p>
+
+      <p><label for="yearsinbusiness">Years in Business:</label>
+      <select id="yearsinbusiness" name="yearsinbusiness" >
+        <option value="na">N/A</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4+">4+</option>
+      </select></p>
+
+     <p> <label for="annualRevenue">Annual Revenue:</label>
+      <input type="number" id="annualRevenue" name="annualRevenue" min="1" ></p>
+
+     <p> <label for="phoneNumber">Phone Number:</label>
+      <input type="tel" id="phoneNumber" name="phoneNumber" ></p>
+      
+      <p><label for="businessEmail">Business Email:</label>
+      <input type="email" id="businessEmail" name="businessEmail" ></p>
+      
+      <p><label for="website">Website Address:</label>
+      <input type="text" id="website" name="website" ></p>
+
+        </div>
+
+ 
+        <button class="collapsible">Address Details</button>
+        <div class="content">
+   <p><label for="country">Country:</label>
+    <input type="text" id="country" name="country" placeholder="South Africa"></p>
+
+    <p><label for="province">Province:</label>
+      <select id="province"name="province" required>
+      <option value="" disabled selected>Gauteng</option>
+        <option value="gauteng">Gauteng</option>
+        <option value="westerncape">Western Cape</option>
+        <option value="freestate">Free State</option>
+        <option value="limpopo">Limpopo</option>
+        <option value="kwazulunatal">Kwazulu Natal</option>
+        <option value="mpumalanga">Mpumalanga</option>
+        <option value="northwest">Nort West</option>
+        <option value="northrencape">Northern Cape</option>
+        <option value="easterncape">Eastern Cape</option>
+      </select></p>
+      <p> <label for="city">City:</label>
+        <input type="text" id="city" name="city"placeholder="Johannesburg" required></p>
+
+    <label for="municipality">Municipality:</label>
+    <select id="municipality" name="municipality" required>
+      <option value="" disabled selected>Select a category</option>
+      <option value="CityofEkurhuleni">City of Ekurhuleni Metropolitan</option>
+      <option value="cityofjohannesburg">City of Johannesburg Metropolitan</option>
+      <option value="cityof tswane">City of Tswane Metropolitan</option>
+      <option value="sedibeng">Sedibeng District</option>
+      <option value="westrand">West Rand District</option>
+      <option value="mangaung">Mangaung Metropolitan</option>
+      <option value="fezile">Fezile Dabi District</option>
+      <option value="lejweleputswa">Lejweleputswa District</option>
+      <option value="thabomofutsanyana">Thabo Mofutsanyana District</option>
+      <option value="xhariep">Xhariep District</option>
+      <option value="buffalocity">Buffalo City Metropolitan</option>
+      <option value="Nelsonmandelabay">Nelson Mandela Bay Metropolitan</option>
+      <option value="alfred">Alfred Nzo District</option>
+      <option value="amathole">Amathole District</option>
+      <option value="chrishani">Chris Hani District</option>
+      <option value="joegqabi">Joe Gqabi District</option>
+      <option value="ortambo">OR Tambo District</option>
+      <option value="sarahbaartman">Sarah Baartman District</option>
+      <option value="ethekhinimetropolitan">eThekwini Metropolitan</option>
+      <option value="amajuba">Amajuba District</option>
+      <option value="harrygwala">Harry Gwala District</option>
+      <option value="ilembe">iLembe District</option>
+      <option value="kingcetshwayo">King Cetshwayo District</option>
+      <option value="ugu">Ugu District</option>
+      <option value="umgungundlovu">uMgungundlovu District</option>
+      <option value="umkhanyakude">uMkhanyakude District</option>
+      <option value="umzinyati">uMzinyathi District</option>
+      <option value="uthukela">uThukela District</option>
+      <option value="zululand">Zululand District</option>
+      <option value="capricon">Capricorn District</option>
+      <option value="mopani">Mopani District</option>
+      <option value="sekhukhune">Sekhukhune District</option>
+      <option value="vhembe">Vhembe District</option>
+      <option value="waterberg">Waterberg District</option>
+      <option value="ehlanzeni">Ehlanzeni District</option>
+      <option value="gertsibande">Gert Sibande District</option>
+      <option value="nkangala">Nkangala District</option>
+      <option value="frances">Frances Baard District</option>
+      <option value="johntaologaetsewe">John Taolo Gaetsewe District</option>
+      <option value="namakwa">Namakwa District</option>
+      <option value="pixleykaseme">Pixley Ka Seme District</option>
+      <option value="zfmgcawu">ZF Mgcawu District</option>
+      <option value="bojanala">Bojanala Platinum District</option>
+      <option value="drkennethkaund">Dr Kenneth Kaunda District</option>
+      <option value="drruthsegomotsi">Dr Ruth Segomotsi Mompati District</option>
+      <option value="ngakamodirimolema">Ngaka Modiri Molema District</option>
+      <option value="cityofcapetown">City of Cape Town Metropolitan</option>
+      <option value="capewinelands">Cape Winelands District</option>
+      <option value="centralkaroo">Central Karoo District</option>
+      <option value="gardenroute">Garden Route District</option>
+      <option value="overberg">Overberg District</option>
+      <option value="westcoast">West Coast District</option>
+      </select></p>
+
+      <script>
+        const provinceElement = document.getElementById("province");
+        const municupalityElement = document.getElementById("municipality");
+       
+        
+          const provinceMunicipalities = {
+            gauteng: [
+            "City of Ekurhuleni Metropolitan",
+              "City of Johannesburg Metropolitan",
+              "City of Tswane Metropolita",
+              "Sedibeng District Municipality",
+              "West Rand District Municipality",
+              // ... Add other Gauteng municipalities ...
+            ],
+            westerncape: [
+              "City of Cape Town Metropolitan",
+              "Cape Winelands District",
+            "  Cape Winelands District Municipality",
+            "Central Karoo District Municipality",
+            "Garden Route District Municipality",
+              "Overberg District Municipality",
+            "West Coast District Municipality",
+            "City of Cape Town Metropolitan Municipality",
+              // ... Add other Western Cape municipalities ...
+            ],
+            // ... Add similar entries for other provinces ...
+            freestate: [
+            "Fezile Dabi District Municipality",
+          "Lejweleputswa District Municipality",
+            "Mangaung Metropolitan Municipality ",
+            "Thabo Mofutsanyane District Municipality",
+            "Xhariep District Municipality",
+      
+            ],
+      
+            limpopo : [
+      "Capricorn District Municipality",
+      "Mopani District Municipality",
+      "Sekhukhune District Municipality",
+      "Vhembe District Municipality",
+      "Waterberg District Municipality",
+            ],
+
+            kwazulunatal : [
+      "Amajuba District Municipality",
+      "Harry Gwala District Municipality",
+      "iLembe District Municipality",
+      "King Cetshwayo District Municipality",
+      "Ugu District Municipality",
+      "uMgungundlovu District Municipality",
+      "uMkhanyakude District Municipality",
+      "uMzinyathi District Municipality",
+      "uThukela District Municipality",
+      "Zululand District Municipality",
+            ],
+            mpumalanga : [
+      "Ehlanzeni District Municipality",
+      "Gert Sibande District Municipality",
+      "Nkangala District Municipality",
+          ],
+          northwest:[
+      "Bojanala Platinum District Municipality ",
+      "Dr Kenneth Kaunda District Municipality",
+      "Dr Ruth Segomotsi Mompati District Municipality",
+      "Ngaka Modiri Molema District Municipality",
+      
+          ],    
+      easterncape :[
+      "Alfred Nzo District Municipality",
+      "Amathole District Municipality",
+      "Buffalo City Metropolitan Municipality ",
+      "Chris Hani District Municipality",
+      "Joe Gqabi District Municipality",
+      "Nelson Mandela Bay Metropolitan Municipality",
+      "O.R. Tambo District Municipality",
+      "Sarah Baartman District Municipality",
+      
+      ],
+      
+      northerncape:[
+      "Frances Baard District Municipality",
+      "John Taolo Gaetsewe District Municipality",
+      "Namakwa District Municipality",
+      "Pixley ka Seme District Municipality",
+      "ZF Mgcawu District Municipality",
+      ]
+      // sort fu
+          
+          };
+          function sortOptions(selectId) {
+            const selectElement = document.getElementById(selectId);
+            const options = Array.from(selectElement.options).slice(1); // Exclude the default option
+            options.sort((a, b) => a.text.localeCompare(b.text));
+        
+            selectElement.innerHTML = "";
+            selectElement.appendChild(new Option("Select a category", "")); // Add the default option back
+            options.forEach(option => selectElement.appendChild(option));
+          }
+        
+          // Call the sort function on page load
+          window.onload = function() {
+            sortOptions("province");
+          };
+      
+        // Function to populate municipalities based on province
+        function populateMunicipalities(selectedProvince) {
+          // Clear existing options
+          while (municipalityElement.children.length > 1) {
+            municipalityElement.removeChild(municipalityElement.lastChild);
+          }
+      
+          const municipalities = provinceMunicipalities[selectedProvince];
+      
+          // Populate the municipality dropdown
+          municipalities.forEach((municipality) => {
+            const option = document.createElement("option");
+            option.value = municipality;
+            option.textContent = municipality;
+            municipalityElement.appendChild(option);
+          });
+        }
+      
+        // Event listener for province select change
+        provinceElement.addEventListener("change", function () {
+          const selectedProvince = provinceElement.value;
+          populateMunicipalities(selectedProvince);
+        });
+      
+      </script>
+      
+    </p>
+    
+    <p><label for="address-line">Address Line (Street no, Name, Postal code):</label>
+    <textarea id="address-line" name="address-line" placeholder=" 11 Old Pretoria , Grand Central, 1658" required></textarea></p>
+
+   
+</div>
+
+
+  
+       <button class="collapsible">Compliance Information</button>
+            <div class="content">
+
+            <label>Which of the following compliance details/documents are you in position of?</label>
+           <p> <label for="cicp-registration">
+                <input type="checkbox" id="cicp-registration" name="compliance[]" value="CICP Registration"> CICP Registration
+            </label></p>
+            <p><label for="bbbee-certificate">
+                <input type="checkbox" id="bbbee-certificate" name="compliance[]" value="BBBEE Certificate"> BBBEE Certificate
+            </label></p>
+          <p><label for="tax-clearance">
+                <input type="checkbox" id="tax-clearance" name="compliance[]" value="Tax Clearance Certificate"> Tax Clearance Certificate
+            </label></p>
+            <p><label for="valid-bank-account">
+                <input type="checkbox" id="valid-bank-account" name="compliance[]" value="Valid Bank Account"> Valid Bank Account
+            </label></p>
+           <p> <label for="other">
+                <input type="checkbox" id="other" name="compliance[]" value="Other"> Other
+            </label></p>
+        </div>
+
+        <button class="collapsible">Subcontracting Information</button>
+        <div class="content">
+            
+           <p><label for="subcontractedproducts">Subcontracted Products/Service:</label>
+            <input type="text" id="subcontractedproducts" name="subcontractedproducts" placeholder="Plant Cleaning" required></p>
+        
+            <p><label for="period_of_subcontracting">Period of Subcontracting:</label>
+            <input type="number" id="period_of_subcontracting" name="period_of_subcontracting" placeholder="10" required></p>
+        
+           <p><label for="manufactured">Manufactured Product:</label>
+            <select id="manufactured" name="manufactured" required>
+                <option value="" selected>-----</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select></p>
+        
+           <p><label for="materialprocessing">Material Processing:</label>
+            <select id="materialprocessing" name="materialprocessing" required>
+                <option value="" selected>-----</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select></p>
+        </div>
+
+
+
+        <button class="collapsible">Additional Information</button>
+        <div class="content">
+            
+           <p><label for="preferredcommunicationMethod">Preferred Communication Method:</label>
+            <select id="preferredcommunicationMethod" name="preferredcommunicationMethod" required>
+              <option value="" disabled selected>Email</option>
+              <option value="email">Email</option>
+              <option value="phone">Phone</option>
+              <option value="mail">Postal</option>
+            </select></p>
+    
+      <!-- <p><label for="dateJoined">Date Joined:</label>
+      <input type="date" id="dateJoined" name="dateJoined" placeholder="2021/06/22" required></p> -->
+    
+      <p><label for="sapAribaRef">SAP Ariba Ref No:</label>
+      <input type="text" id="sapAribaRef" name="sapAribaRef" placeholder="Na" required></p>
+      
+      <p><label for="coupaID">Coupa ID:</label>
+      <input type="text" id="coupaID" name="coupaID" placeholder="Na"></p>
+        
+     
+    </div>
+    
+    <button class="collapsible">Managing Director Information</button>
+    <div class="content">
+  
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      
+      <label for="surname">Surname:</label>
+      <input type="text" id="surname" name="surname" required>
+      
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender" required>
+          <option value="" disabled selected>Select A Category</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Prefer Not to Say</option>
+      </select>
+      
+      <label for="race">Race:</label>
+      <input type="text" id="race" name="race" required>
+      
+      <label for="citizenship">Citizenship:</label>
+      <input type="text" id="citizenship" name="citizenship" required>
+      
+      <label for="ownermanaged">51% Woman Owned:</label>
+      <input type="checkbox" id="ownermanaged" name="ownermanaged">
+  </div>
+
+          <button class="collapsible">Employee Information</button>
+            <div class="content">
+
+              <label for="female-employees">Female Employees:</label>
+              <input type="number" id="female-employees" name="female-employees" min="1" required>
+
+              <label for="male-employees">Male Employees:</label>
+              <input type="number" id="male-employees" name="male-employees" min="1" required>
+
+              <label for="PreferNottoSay-employees">Prefer Not to Say Employees:</label>
+              <input type="number" id="PreferNottoSay-employees" name="PreferNottoSay-employees" min="1" required>
+
+
+              <div id="total-employees"></div>
+
+            <div>Total: </div>
+          </div>
+
+        <button class="submit-section">
+            <input type="submit" value="Update">
+        </button>
+
+        <script>
+          function calculateTotalEmployees() {
+              var femaleEmployees = parseInt(document.getElementById("female-employees").value);
+              var maleEmployees = parseInt(document.getElementById("male-employees").value);
+              var PreferNottoSayEmployees = parseInt(document.getElementById("PreferNottoSay-employees").value);
+
+              var totalEmployees = femaleEmployees + maleEmployees + PreferNottoSayEmployees;
+
+              document.getElementById("total-employees").textContent = "Total Employees: " + totalEmployees;
+          }
+          const femaleEmployeesInput = document.getElementById("female-employees");
+          const maleEmployeesInput = document.getElementById("male-employees");
+          const PreferNottoSayEmployeesInput = document.getElementById("PreferNottoSay-employees");
+
+          femaleEmployeesInput.addEventListener('input', calculateTotalEmployees);
+          maleEmployeesInput.addEventListener('input', calculateTotalEmployees);
+          PreferNottoSayEmployeesInput.addEventListener('input', calculateTotalEmployees);
+          </script>
+
+        <script>
+          var coll = document.getElementsByClassName("collapsible");
+          var i;
+
+          for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+              this.classList.toggle("active");
+              var content = this.nextElementSibling;
+              if (content.style.maxHeight){
+                content.style.maxHeight = null;
+              } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+              } 
+            });
+
+            // Add this code to initially hide the content
+            var content = coll[i].nextElementSibling;
+            content.style.maxHeight = null;
+          }
+        </script>
+
+    </form>
+
+    <script src="editBusinessRegis.js" async defer></script>
+    
+    <!--<script src="userEdit.js" async defer></script>-->
+</body>
+
+</html>
+

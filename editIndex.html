@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Business Log</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+    <script>
+        const firebaseConfig = {
+  apiKey: "AIzaSyBf4YWSbtdbbUBcxRJQ0RkOnUDYVNcD8uQ",
+  authDomain: "testjs-fc621.firebaseapp.com",
+  databaseURL: "https://testjs-fc621-default-rtdb.firebaseio.com",
+  projectId: "testjs-fc621",
+  storageBucket: "testjs-fc621.appspot.com",
+  messagingSenderId: "631785812901",
+  appId: "1:631785812901:web:80c3883855041aff562e4c",
+  measurementId: "G-H8JZ58SJ27"
+};
+
+        firebase.initializeApp(firebaseConfig);
+
+        const db = firebase.firestore();
+        const collectionRef = db.collection('Business');
+        collectionRef.get().then((querySnapshot) => {
+            const tableBody = document.querySelector('#tableBody');
+            querySnapshot.forEach((doc) => {
+                const data = doc.data();
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${data.memberID}</td>
+                    <td>${data.tradingName}</td>
+                    <td>${data.registeredName}</td>
+                    <td>${data.cipcNo}</td>
+                    <td>${data.category}</td>
+                    <td>${data.subcategory}</td>
+                    <td>${data.country}</td>
+                    <td>${data.Province}</td>
+                    <td>${data.city}</td>
+                    <td>${data.timestamp}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        });
+
+        function search() {
+    const searchBar = document.getElementById('search');
+    const category = document.getElementById('category');
+    const tbody = document.getElementById('tableBody');
+    const original = tbody.innerHTML;
+
+    tbody.innerHTML = original;
+    let rows = tbody.children;
+
+    if (searchBar.value.length < 1 || category.value === '0') {
+        return;
+    }
+
+    let filteredRows = '';
+    let catno = Number(category.value) - 1;
+    let searchtext = searchBar.value.toLowerCase();
+
+    for (let i = 0; i < rows.length; i++) {
+        const currentRowText = rows[i].children[catno].textContent.toLowerCase(); // Use textContent instead of innerText
+        if (currentRowText.indexOf(searchtext) > -1) {
+            filteredRows += rows[i].outerHTML;
+        }
+    }
+
+    tbody.innerHTML = filteredRows;
+}
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchBar = document.getElementById('search');
+            const category = document.getElementById('category');
+            searchBar.addEventListener('input', search);
+            searchBar.addEventListener('change', search);
+            category.addEventListener('change', search);
+        });
+    </script>
+    <style>
+        .back-link {
+
+text-decoration: none;
+
+color: #17A589;
+
+padding: 20px;
+
+position: absolute;
+
+top: 0;
+
+left: 0;
+
+display: flex;
+
+position: fixed;
+
+align-items: center;
+
+}
+
+
+
+h1{
+
+color: #17A589;
+
+font-size: 30px;
+
+}
+    </style>
+</head>
+<body>
+<div class="back-button">
+    <!-- Your back button content here -->
+</div>
+<div class="container">
+    <h1>Business Log</h1>
+    <form class="ms-3 mt-3 w-50">
+        <input type="text" id="search" placeholder="Search" class="form-control shadow-sm">
+        <select id="category" class="form-select mt-3 mb-3 shadow-sm">
+            <option value="0" selected hidden> Select category</option>
+            <option value="1">Province</option>
+            <option value="2">City</option>
+            <option value="3">Core Business</option>
+            <option value="4">Sub-category</option>
+        </select>
+    </form>
+    <table id="BusinessLog">
+        <thead>
+            <tr>
+                <th scope="col">MemberID</th>
+                <th scope="col">Trading Name</th>
+                <th scope="col">Registered Name</th>
+                <th scope="col">CIPC no</th>
+                <th scope="col">Core Business</th>
+                <th scope="col">Sub-Category</th>
+                <th scope="col">Country</th>
+                <th scope="col">Province</th>
+                <th scope="col">City</th>
+                <th scope="col">Date Joined</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            <!-- Table body content will be populated dynamically -->
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

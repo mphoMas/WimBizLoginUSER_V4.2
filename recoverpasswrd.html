@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="signuplogin.css">
+    <title>Password Recovery</title>
+</head>
+<body class="white-3">
+    <div class="nav-wrapper container">
+        <div class="wrapper">
+            <br>
+            <wow-image id="img_comp-ld5vony1" class="HlRz5e BI8PVQ" data-image-info="{&quot;containerId&quot;:&quot;comp-ld5vony1&quot;,&quot;displayMode&quot;:&quot;fill&quot;,&quot;targetWidth&quot;:186,&quot;targetHeight&quot;:88,&quot;isLQIP&quot;:false,&quot;imageData&quot;:{&quot;width&quot;:2000,&quot;height&quot;:2000,&quot;uri&quot;:&quot;cebc84_dc1eb47324174904b3d21771292e5c5b~mv2.png&quot;,&quot;name&quot;:&quot;WiMBIZ LOGO.png&quot;,&quot;displayMode&quot;:&quot;fill&quot;,&quot;crop&quot;:{&quot;x&quot;:149,&quot;y&quot;:530,&quot;width&quot;:1851,&quot;height&quot;:873,&quot;svgId&quot;:&quot;909695c1e003409ba70b5561666c7c4d.svg&quot;}}}" data-bg-effect-name="" data-has-ssr-src="" data-src="https://static.wixstatic.com/media/cebc84_dc1eb47324174904b3d21771292e5c5b~mv2.png/v1/crop/x_149,y_530,w_1851,h_873/fill/w_279,h_132,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/WiMBIZ%20LOGO.png"><img src="https://static.wixstatic.com/media/cebc84_dc1eb47324174904b3d21771292e5c5b~mv2.png/v1/crop/x_149,y_530,w_1851,h_873/fill/w_279,h_132,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/WiMBIZ%20LOGO.png" alt="WiMBIZ LOGO.png" style="width:186px;height:88px;object-fit:cover" width="186" height="88" srcset="https://static.wixstatic.com/media/cebc84_dc1eb47324174904b3d21771292e5c5b~mv2.png/v1/crop/x_149,y_530,w_1851,h_873/fill/w_279,h_132,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/WiMBIZ%20LOGO.png" fetchpriority="high"></wow-image>
+            <div class="recover-password">
+                <h2>Password Recovery</h2>
+                <form class="password-recovery-form">
+                    <div class="input-field">
+                        <input type="text" id="email" placeholder="Email">
+                        <div class="error-message" id="email-error"></div>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <style>
+        .wrapper {
+            width: 330px;
+            height: 350px;
+            padding: 20px 1rem;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .recover-password {
+            margin-top: 20px; /* Adjust the margin as needed */
+            text-align: center;
+        }
+
+        h2 {
+            display: block;
+            font-size: 1.5em;
+            margin-block-start: 0.83em;
+            margin-block-end: 0.83em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-weight: bold;
+            margin-bottom: -30px;
+        }
+
+        .error-message {
+        color: red;
+        font-size: 12px;
+        margin-top: 5px;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('.password-recovery-form');
+            const email = document.getElementById('email');
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                clearErrorMessage('email-error');
+
+                if (validateEmail(email.value)) {
+                    // Perform password recovery logic here
+                    alert('Password recovery initiated for ' + email.value);
+                }
+            });
+
+            function clearErrorMessage(errorId) {
+                const errorMessage = document.getElementById(errorId);
+                errorMessage.textContent = '';
+            }
+
+            function displayErrorMessage(errorId, message) {
+                const errorMessage = document.getElementById(errorId);
+                errorMessage.textContent = message;
+            }
+
+            function validateEmail(email) {
+                const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+                if (!email.match(emailPattern)) {
+                    displayErrorMessage('email-error', 'Enter a valid email address.');
+                    return false;
+                }
+                return true;
+            }
+        });
+    </script>
+</body>
+</html>

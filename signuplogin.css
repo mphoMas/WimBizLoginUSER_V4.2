@@ -1,0 +1,294 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background: hwb(174 ,215 ,104);
+}
+
+
+h1{
+  font-size: 20px;
+  color: #07001f;
+  margin-bottom: 1.2rem;
+}
+h2{
+  font-size: 25px;
+}
+button{
+  font-size: 12px;
+  margin-top: 1.8rem;
+  padding: 10px 0;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  width: 90%;
+  background: rgb(33, 165,150 );
+  cursor: pointer;
+}
+button:hover{
+  background: rgba(33, 165, 150, 0.877);
+}
+input:focus{
+  border: 1px solid rgb(30,160,140);
+}
+.terms{
+  margin-top: 0.2rem;
+}
+.terms input{
+  height: 1em;
+  width: 1em;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.terms label{
+  font-size:16px ;
+
+}
+.terms a{
+color:rgb(33,165,150) ;
+text-decoration: none;
+}
+.member{
+  font-size: 20px;
+  margin-top: 1.4rem;
+  color: #636363;
+}
+.member a{
+  color: rgb( 33,165,150);
+  text-decoration: none;
+}
+
+
+
+
+<!--Login Validations-->
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: avenir-lt-w01_35-light1475496,avenir-lt-w05_35-light,sans-serif;
+}
+body{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+::selection{
+  color: #fff;
+  background: #17A589;
+}
+
+.wrapper header{
+    display: block;
+    font-size: 15px;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    margin-bottom: -20px;
+}
+.wrapper form{
+  margin: 40px 0;
+}
+
+div .wrapper{
+    width: 380px;
+    background-color: white;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+form .field{
+  width: 100%;
+  margin-bottom: 20px;
+}
+form .field.shake{
+  animation: shake 0.3s ease-in-out;
+}
+@keyframes shake {
+  0%, 100%{
+    margin-left: 0px;
+  }
+  20%, 80%{
+    margin-left: -12px;
+  }
+  40%, 60%{
+    margin-left: 12px;
+  }
+}
+form .field .input-area{
+  height: 50px;
+  width: 100%;
+  position: relative;
+}
+form input{
+  width: 92%;
+  outline: none;
+  border: 1px solid #fff;
+  padding: 12px 20px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  background: #e4e4e4;
+  font-size: 12px;
+}
+form .field input:focus,
+form .field.valid input{
+  border-color: #17A589;
+}
+form .field.shake input,
+form .field.error input{
+  border-color: #dc3545;
+}
+.field .input-area i{
+  position: absolute;
+  top: 50%;
+  font-size: 12px;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+.input-area .icon{
+  left: 15px;
+  color: black;
+  transition: color 0.2s ease;
+}
+.input-area .error-icon{
+  right: 15px;
+  color: #dc3545;
+}
+form input:focus ~ .icon,
+form .field.valid .icon{
+  color: #17A589;
+}
+form .field.shake input:focus ~ .icon,
+form .field.error input:focus ~ .icon{
+  color: #bfbfbf;
+}
+form input::placeholder{
+  color: #bfbfbf;
+  font-size: 20px;
+}
+form .field .error-txt{
+  color: red;
+    font-size: 16px;
+}
+form .field .error{
+  display: none;
+}
+form .field.shake .error,
+form .field.error .error{
+  display: block;
+}
+form .pass-txt{
+  text-align: left;
+  margin-top: -10px;
+}
+.wrapper a{
+  color: #17A589;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: avenir-lt-w01_35-light1475496,avenir-lt-w05_35-light,sans-serif;
+}
+
+
+a{
+  color: #17A589;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: avenir-lt-w01_35-light1475496,avenir-lt-w05_35-light,sans-serif;
+}
+.wrapper a:hover{
+  text-decoration: underline;
+}
+form input[type="submit"]{
+  height: 50px;
+  margin-top: 20px;
+  padding: 0;
+  border: none;
+  background: #17A589;
+  cursor: pointer;
+  border-bottom: 2px solid rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  font-size: 10px;
+}
+form input[type="submit"]:hover{
+  background: #17A589;
+}
+.sign-txt{
+  color: #17A589;
+  font-size: 25px;
+  font-family: avenir-lt-w01_35-light1475496,avenir-lt-w05_35-light,sans-serif;
+}
+.credit{
+    margin-top: 20px;
+    text-align: center;
+    color: #000;
+    font-family: avenir-lt-w01_35-light1475496,avenir-lt-w05_35-light,sans-serif;
+}
+.credit a{
+    text-decoration: none;
+    color:#000;
+    font-weight: bold;
+}  
+
+
+.sign-txt {
+  font-size: 16px;
+  margin-top: 1.4rem;
+  color: #636363;
+}
+h2 {
+  display: block;
+  font-size: 20px;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  margin-bottom: -30px;
+}
+.error-message {
+  color: red; 
+  font-size: 10px;
+}
+
+
+
+    body {
+height: 100vh;
+background-image: url(WIMBIZPIC.jpeg);
+background-size: cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+position: relative;
+margin-bottom: 60px;
+}
+
+body {
+background-position: center center;
+background-size: 1800px 770px;
+}
+
+
+body {
+  height: 100vh;
+  background-image: url(WIMBIZPIC.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  margin-bottom: 60px;
+  size-adjust: 100%;
+  }
+  
+  body {
+  background-position: center center;
+  background-size: 1800px 770px;
+  }

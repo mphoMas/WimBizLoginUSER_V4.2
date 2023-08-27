@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <div class="back-button">
+    <a href="AdminwimbizPortal.html" class="back-link">
+        <span class="back-link"></span> Back to Home
+    </a>
+  </div>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script> <!-- Load firebase-app.js first -->
+        <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="newSTYLE.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+  
+        <style>
+
+              .back-link {
+                text-decoration: none;
+                color: #17A589;
+                padding: 20px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: flex;
+                position: fixed;
+                align-items: center;
+                z-index: 100;
+              }
+        
+              h1{
+                color: #17A589;
+                font-size: 40px;
+               
+              }
+        
+        
+        </style>
+      </head>
+    <body>
+        <div class="container">
+            <h1>Access Control</h1>
+            <a href="Adminsignup.html" class="grey-text modal-trigger" >Create new Admin user</a>
+            <table class="table table-bordered">
+             
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">First_Name</th>
+                  <th scope="col">Last_Name</th>
+                  <th scope="col">Phone</th>
+                  <th scope="col">Email_Address</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="table-body">
+
+            </tbody>
+          </div>
+          <script src="Adminapp.js"></script>
+
+
+
+    </body>
+
+  
+</html>

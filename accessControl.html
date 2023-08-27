@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="images/home-icon.png" type="image/png">
+    <style>
+      
+   </style>
+<!-- 
+  <script src="BR-submit.js" async defer></script> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="accessControlStyle.css">
+    <script type="text/javascript" src="accessControl.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Access Control</title>
+   
+    <style>
+     .back-link {
+          text-decoration: none;
+          color: #17A589;
+          padding: 20px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: flex;
+          position: fixed;
+          align-items: center;
+      }
+
+      .footer {
+          background-color: #f8f8f8;
+          position: fixed;
+          text-align: center;
+          width: 100%;
+          }
+       a{
+          color: black;
+          }
+        
+        .footer-content {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+          margin-bottom: -30px;
+          }
+        .footer-divider {
+          margin-top: 20px;
+          border-top: 1px solid #EAEAEA; 
+          }
+        
+        .footer-logo img {
+          width: 160px;
+          align-items:flex-start;
+          margin-bottom: -50px;
+          }
+        
+        
+        .footer-info p {
+          margin: 5px 0;
+          }
+        
+        .footer-social {
+          margin-top: 15px;
+          }
+        
+        .footer-social a {
+          display: inline-block;
+          margin: -150px 10px;
+          text-decoration: none;
+          font-size: 20px;
+          }
+
+        h3{
+          font-size: 16px;
+          color: #21A596;
+          }
+
+        p{
+          font-size: 12px;
+          }
+
+        .footer-copyright {
+          margin-top: 20px;
+          font-size: 10px;
+          }
+
+        .footer-divider {
+          margin-top: 20px;
+          border-top: 5px solid #21A596;
+          }   
+        
+        footer {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          left: 0;
+          }
+    </style>
+</head>
+
+<body>
+
+  <div class="back-button">
+    <a href="AdminwimbizPortal.html" class="back-link">
+        <span class="back-link"></span> Back to Home
+    </a>
+
+
+    <div class="container">
+        <h1>Access Control</h1>
+        <div class="end">
+            <!-- <p1 id="showBtn" class="txtbtn v-margin-md" onclick="handleSearchbar()">Add Admin</p1> -->
+            <span id="showBtn" class="material-symbols-outlined v-margin-md" onclick="handleSearchbar()">person_add</span>
+        </div>
+        <input oninput="filterUsers('searchbar')" id="searchbar" type="text" class="hide">
+        <div id="listContainer" class="listContainer">
+            
+        </div>
+        <div id="adminListContainer" class="listContainer">
+            
+        </div>
+    </div>
+</body>
+<br><br><br>
+<footer class="footer">
+  <div class="footer-content">
+      
+      <div class="footer-logo">
+          <img src="wimbizlogo.jpg" alt="Logo">
+      </div>
+      
+      <div class="footer-social">
+          <a href="https://www.facebook.com/womeninminingbusiness" class="fab fa-facebook-f"></a>
+          <a href="https://www.linkedin.com/company/wimbiz/" class="fab fa-linkedin"></a>
+          <a href="https://www.instagram.com/womeninminingbusiness/" class="fab fa-instagram"></a>
+      </div>
+  </div>
+  
+
+      <div class="footer-info">
+          <h3>STAY CONNECTED WITH WIMBIZ</h3>
+          <p>admin@wimbiz.org.za</p>
+          <p>www.wimbiz.org.za</p>
+      </div>
+      <hr class="footer-divider">
+      <p class="footer-copyright">© 2023 Women In Mining Business South Africa<br>
+          Sponsored by <a href="https://www.mettlesa.co.za">Mettle SA</a></p> 
+
+</footer>
+
+</html>

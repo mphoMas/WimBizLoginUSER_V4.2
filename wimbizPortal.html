@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Women in Business Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+
+            
+        /* Reset margin and padding for the whole page */
+        body, html {
+            margin: 0;
+            padding: 0;
+        }
+        
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(WIMBIZPIC.jpeg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+            margin-bottom: 60px;
+        }
+        
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2px 12px;
+            background-color: white;
+            color: white;
+            margin-top: -30px;
+        }
+        .logo img {
+                    width: 80px; 
+                    height: auto;
+                    object-fit: cover;
+                    margin-bottom: 30px;
+                    margin-top: 23px; 
+                    top: 0;
+                }
+        .navigation a {
+            margin: 0 10px;
+            color: #21A596;
+            text-decoration: none;
+            font-size: 25px;
+        }
+        
+        
+        .navigation a:hover {
+            color: #AED768;
+        }
+        
+        
+        .content {
+            padding: 40px;
+            text-align: center;
+        }
+        
+        
+        .welcome-message {
+            background-color: #f8f8f8;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 50px;
+        }
+        
+        /* Page title styles */
+        h1 {
+            display: block;
+            color: white;
+            margin-block-start: 0.67em;
+            margin-block-end: 0.67em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-weight: bold;
+            font-size: 25px;
+            margin-bottom: 10px;
+            font-family: avenir-lt-w01_35-light1475496, avenir-lt-w05_35-light, sans-serif;
+        }
+        
+        .footer {
+              background-color: #f8f8f8;
+              position: fixed;
+              text-align: center;
+              width: 100%;
+          }
+          a{
+              color: black;
+          }
+        
+          .footer-content {
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             max-width: 1200px;
+             margin: 0 auto;
+             padding: 0 20px;
+             margin-bottom: -30px;
+          }
+          .footer-divider {
+             margin-top: 20px;
+             border-top: 1px solid #EAEAEA; 
+          }
+        
+          .footer-logo img {
+             width: 160px;
+             align-items:flex-start;
+             margin-bottom: -80px;
+            
+             
+          }
+        
+        
+          .footer-info p {
+            margin: 5px 0;
+        
+          }
+        
+          .footer-social {
+            margin-top: 15px;
+          }
+        
+          .footer-social a {
+            display: inline-block;
+            margin: -150px 10px;
+            text-decoration: none;
+            font-size: 20px;
+          
+          }
+          h3{
+            font-size: 16px;
+            color: #21A596;
+          }
+        p{
+          font-size: 12px;
+        }
+          .footer-copyright {
+            margin-top: 20px;
+            font-size: 10px;
+          }
+          .footer-divider {
+           margin-top: 20px;
+           border-top: 5px solid #21A596;
+          }   
+        
+          footer {
+            position: absolute;
+             bottom: 0;
+             width: 100%;
+             left: 0;
+            }
+        </style>
+
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="wimbizlogo.jpg" alt="Logo" width="150" height="auto">
+        </div>        
+        <div class="navigation">
+            <a href="profile.html" >Profile</a>
+            <a href="BusinessRegistration.html" >Business Registration </a>
+            <a  href="#" id="logout" click="logout">Logout</a>
+        </div>
+    </header>
+
+    <div class="content">
+       
+       
+        <footer class="footer">
+            <div class="footer-content">
+                
+                <div class="footer-logo">
+                    <img src="wimbizlogo.jpg" alt="Logo">
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/womeninminingbusiness" class="fab fa-facebook-f"></a>
+                    <a href="https://www.linkedin.com/company/wimbiz/" class="fab fa-linkedin"></a>
+                    <a href="https://www.instagram.com/womeninminingbusiness/" class="fab fa-instagram"></a>
+                </div>
+            </div>
+            
+
+                <div class="footer-info">
+                    <h3>STAY CONNECTED WITH WIMBIZ</h3>
+                    <p>admin@wimbiz.org.za</p>
+                    <p>www.wimbiz.org.za</p>
+                </div>
+                <hr class="footer-divider">
+                <p class="footer-copyright">© 2023 Women In Mining Business South Africa<br>
+                    Sponsored by <a href="https://www.mettlesa.co.za">Mettle SA</a></p> 
+
+        </footer>
+    
+
+
+<script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-auth-compat.js"></script>
+<script >
+// Initialize
+const firebaseApp = firebase.initializeApp({
+  apiKey: "AIzaSyBf4YWSbtdbbUBcxRJQ0RkOnUDYVNcD8uQ",
+  authDomain: "testjs-fc621.firebaseapp.com",
+  databaseURL: "https://testjs-fc621-default-rtdb.firebaseio.com",
+  projectId: "testjs-fc621"
+});
+
+//make auth and firestore references
+const auth = firebase.auth();
+const db = firebase.firestore();
+db.settings({timestampsInSnapshots: true });
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script type="module" src="signup.js"></script>
+<script type="module" src="login.js"></script>
+<script type="module" src="portal.js"></script>
+</body>
+</html>
